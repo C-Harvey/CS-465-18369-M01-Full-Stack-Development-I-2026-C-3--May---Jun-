@@ -1,6 +1,9 @@
+const { trips } = require('../data/trips');
+
 const travel = (req, res) => {
     res.render('travel', {
-        title: 'Travlr Getaways'
+        title: 'Travel',
+        trips
     });
 };
 

@@ -1,0 +1,24 @@
+const trips = [
+    {
+        name: 'Gale Reef',
+        image: 'images/reef1.jpg',
+        description:
+            'Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida.'
+    },
+    {
+        name: 'Dawson Reef',
+        image: 'images/reef2.jpg',
+        description:
+            'Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat.'
+    },
+    {
+        name: 'Claires Reef',
+        image: 'images/reef3.jpg',
+        description:
+            'Donec sed felis risus. Nulla facilisi. Donec a orci tellus, et auctor odio. Fusce ac orci nibh.'
+    }
+];
+
+module.exports = {
+    trips
+};
