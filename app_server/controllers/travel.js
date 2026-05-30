@@ -1,12 +1,20 @@
-const trips = require('../data/trips.json');
+const mongoose = require('mongoose');
 
-const travel = (req, res) => {
-    res.render('travel', {
-        title: 'Travel',
-        trips
-    });
-};
+const Trip = mongoose.model('trips');
 
-module.exports = {
-    travel
+module.exports.travel = async function(req, res) {
+
+    try {
+
+        const trips = await Trip.find().lean();
+
+        res.render('travel', {
+            title: 'Travlr Getaways',
+            trips
+        });
+
+    } catch (err) {
+
+        console.log(err);
+    }
 };
