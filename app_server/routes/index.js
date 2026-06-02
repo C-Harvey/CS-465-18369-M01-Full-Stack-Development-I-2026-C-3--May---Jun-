@@ -10,8 +10,14 @@ const ctrlNews = require('../controllers/news');
 const ctrlContact = require('../controllers/contact');
 const ctrlIndex = require('../controllers/index');
 
-// Routes
+/*
+  WEBSITE ROUTES
+*/
+
+// Home page
 router.get('/', ctrlIndex.index);
+
+// Pages
 router.get('/travel', ctrlTravel.travel);
 router.get('/about', ctrlAbout.about);
 router.get('/rooms', ctrlRooms.rooms);
