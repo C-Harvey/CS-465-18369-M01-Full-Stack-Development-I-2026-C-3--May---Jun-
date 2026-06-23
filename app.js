@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+const cors = require('cors');
 
 // MongoDB connection
 require('./app_server/models/db');
@@ -10,6 +11,13 @@ const apiRoutes = require('./app_api/routes/index');
 
 const app = express();
 const PORT = 3000;
+
+// Enable CORS
+app.use(cors());
+
+// Allow JSON + form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));

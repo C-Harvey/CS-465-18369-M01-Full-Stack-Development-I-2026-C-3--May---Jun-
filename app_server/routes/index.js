@@ -1,29 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-// Controllers
-const ctrlTravel = require('../controllers/travel');
-const ctrlAbout = require('../controllers/about');
-const ctrlRooms = require('../controllers/rooms');
-const ctrlMeals = require('../controllers/meals');
-const ctrlNews = require('../controllers/news');
-const ctrlContact = require('../controllers/contact');
-const ctrlIndex = require('../controllers/index');
+const ctrlTrips = require('../controllers/trips');
 
-/*
-  WEBSITE ROUTES
-*/
+// GET all trips
+router.get('/trips', ctrlTrips.tripsList);
 
-// Home page
-router.get('/', ctrlIndex.index);
+// GET single trip
+router.get('/trips/:tripId', ctrlTrips.tripsFindById);
 
-// Pages
-router.get('/travel', ctrlTravel.travel);
-router.get('/about', ctrlAbout.about);
-router.get('/rooms', ctrlRooms.rooms);
-router.get('/meals', ctrlMeals.meals);
-router.get('/news', ctrlNews.news);
-router.get('/contact', ctrlContact.contact);
-router.get('/index', ctrlIndex.index);
+// POST new trip (ONLY ONE)
+router.post('/trips', ctrlTrips.tripsAddTrip);
+
+// PUT update trip
+router.put('/trips/:tripId', ctrlTrips.tripsUpdateTrip);
+
+// DELETE trip
+router.delete('/trips/:tripId', ctrlTrips.tripsDeleteTrip);
 
 module.exports = router;
