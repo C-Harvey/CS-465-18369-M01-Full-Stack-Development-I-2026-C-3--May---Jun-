@@ -1,7 +1,12 @@
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand">{{ title }}</span>
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/">Travlr Admin</a>
+
+  <div class="navbar-nav">
+    <a class="nav-link" routerLink="/">Trips</a>
+    <a class="nav-link" routerLink="/add">Add Trip</a>
+  </div>
 </nav>
 
-<div class="container mt-3">
-  <app-trip-listing></app-trip-listing>
+<div class="container mt-4">
+  <router-outlet></router-outlet>
 </div>

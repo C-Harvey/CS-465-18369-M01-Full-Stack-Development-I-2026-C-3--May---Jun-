@@ -4,17 +4,22 @@
   <img [src]="'assets/' + trip.image" class="card-img-top">
 
   <div class="card-body">
+
     <h6>{{ trip.resort }}</h6>
 
     <p>
-      {{ trip.length }} — {{ trip?.perPerson | currency:'USD':'symbol' }} per person
+      {{ trip.length }} — {{ trip.perPerson | currency:'USD':'symbol' }} per person
     </p>
 
     <p [innerHTML]="trip.description"></p>
 
-    <button class="btn btn-primary mt-2" (click)="editTrip(trip)">
-  Edit Trip
-</button>
+    <button class="btn btn-primary mt-2" (click)="onEditClick()">
+      Edit Trip
+    </button>
+
+    <button class="btn btn-danger mt-2 ms-2" (click)="onDeleteClick()">
+      Delete
+    </button>
 
   </div>
 </div>

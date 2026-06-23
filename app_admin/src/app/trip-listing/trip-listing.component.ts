@@ -4,7 +4,6 @@ import { Trip } from '../models/trip';
 
 @Component({
   selector: 'app-trip-listing',
-  standalone: false,
   templateUrl: './trip-listing.component.html',
   styleUrl: './trip-listing.component.css'
 })
@@ -12,21 +11,25 @@ export class TripListingComponent implements OnInit {
 
   trips: Trip[] = [];
 
-  constructor(private tripService: TripDataService) {
-    console.log('trip-listing constructor');
-  }
+  constructor(private tripService: TripDataService) {}
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    this.loadTrips();
+  }
 
-    this.tripService.getTrips().subscribe({
-      next: (data) => {
-        console.log('API data received:', data);
-        this.trips = data;
-      },
-      error: (err) => {
-        console.log('API error:', err);
-      }
+  loadTrips(): void {
+    this.tripService.getTrips().subscribe(data => {
+      this.trips = data;
+    });
+  }
+
+  onEditTrip(trip: Trip): void {
+    console.log('Edit:', trip);
+  }
+
+  onDeleteTrip(trip: Trip): void {
+    this.tripService.deleteTrip((trip as any)._id).subscribe(() => {
+      this.loadTrips();
     });
   }
 }

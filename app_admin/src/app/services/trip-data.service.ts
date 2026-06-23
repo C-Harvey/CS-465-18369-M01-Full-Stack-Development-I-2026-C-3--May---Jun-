@@ -16,7 +16,7 @@ export class TripDataService {
     return this.http.get<Trip[]>(this.url);
   }
 
-  getTrip(id: string): Observable<Trip> {
+  getTripById(id: string): Observable<Trip> {
     return this.http.get<Trip>(`${this.url}/${id}`);
   }
 
@@ -26,5 +26,9 @@ export class TripDataService {
 
   updateTrip(id: string, trip: Trip): Observable<Trip> {
     return this.http.put<Trip>(`${this.url}/${id}`, trip);
+  }
+
+  deleteTrip(id: string): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

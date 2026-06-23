@@ -1,23 +1,24 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Trip } from '../models/trip';
 
 @Component({
   selector: 'app-trip-card',
-  standalone: false,
   templateUrl: './trip-card.component.html',
   styleUrl: './trip-card.component.css'
 })
 export class TripCardComponent {
 
-  @Input() trip: any;
+  @Input() trip!: Trip;
 
-  constructor(private router: Router) {}
+  @Output() edit = new EventEmitter<Trip>();
 
-  editTrip(trip: any): void {
-    // store ID for edit page
-    localStorage.setItem('tripCode', trip._id);
+  @Output() delete = new EventEmitter<Trip>();
 
-    // navigate to edit page
-    this.router.navigate(['/edit-trip']);
+  onEditClick(): void {
+    this.edit.emit(this.trip);
+  }
+
+  onDeleteClick(): void {
+    this.delete.emit(this.trip);
   }
 }

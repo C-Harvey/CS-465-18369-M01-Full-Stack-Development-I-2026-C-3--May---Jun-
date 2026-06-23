@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Trip = mongoose.model('trips');
 
-// GET all trips
+// GET all
 module.exports.tripsList = async function(req, res) {
     try {
         const trips = await Trip.find();
@@ -11,7 +11,7 @@ module.exports.tripsList = async function(req, res) {
     }
 };
 
-// GET single trip
+// GET one
 module.exports.tripsFindById = async function(req, res) {
     try {
         const trip = await Trip.findById(req.params.tripId);
@@ -26,28 +26,17 @@ module.exports.tripsFindById = async function(req, res) {
     }
 };
 
-
-// POST
-module.exports.tripsAddTrip = async function(req, res) {
+// CREATE
+module.exports.tripsCreateTrip = async function(req, res) {
     try {
-        const trip = await Trip.create({
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
-        });
-
+        const trip = await Trip.create(req.body);
         res.status(201).json(trip);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 };
 
-// PUT update trip
+// UPDATE
 module.exports.tripsUpdateTrip = async function(req, res) {
     try {
         const trip = await Trip.findByIdAndUpdate(
@@ -56,26 +45,17 @@ module.exports.tripsUpdateTrip = async function(req, res) {
             { new: true }
         );
 
-        if (!trip) {
-            return res.status(404).json({ message: 'Trip not found' });
-        }
-
         res.status(200).json(trip);
     } catch (err) {
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 };
 
-// DELETE trip
+// DELETE
 module.exports.tripsDeleteTrip = async function(req, res) {
     try {
-        const trip = await Trip.findByIdAndDelete(req.params.tripId);
-
-        if (!trip) {
-            return res.status(404).json({ message: 'Trip not found' });
-        }
-
-        res.status(200).json({ message: 'Trip deleted' });
+        await Trip.findByIdAndDelete(req.params.tripId);
+        res.status(200).json({ message: 'Deleted' });
     } catch (err) {
         res.status(500).json(err);
     }

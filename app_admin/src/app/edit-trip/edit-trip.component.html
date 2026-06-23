@@ -1,1 +1,22 @@
-<p>edit-trip works!</p>
+<h2>Edit Trip</h2>
+
+<form *ngIf="trip" (ngSubmit)="onSubmit()">
+
+  <input class="form-control mb-2" [(ngModel)]="trip.code" name="code">
+  <input class="form-control mb-2" [(ngModel)]="trip.name" name="name">
+  <input class="form-control mb-2" [(ngModel)]="trip.length" name="length">
+  <input class="form-control mb-2" [(ngModel)]="trip.start" name="start">
+  <input class="form-control mb-2" [(ngModel)]="trip.resort" name="resort">
+  <input class="form-control mb-2" [(ngModel)]="trip.perPerson" name="perPerson">
+  <input class="form-control mb-2" [(ngModel)]="trip.image" name="image">
+
+  <textarea class="form-control mb-2"
+    [(ngModel)]="trip.description"
+    name="description">
+  </textarea>
+
+  <button class="btn btn-primary" type="submit">
+    Save Changes
+  </button>
+
+</form>

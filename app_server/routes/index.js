@@ -9,10 +9,10 @@ router.get('/trips', ctrlTrips.tripsList);
 // GET single trip
 router.get('/trips/:tripId', ctrlTrips.tripsFindById);
 
-// POST new trip (ONLY ONE)
-router.post('/trips', ctrlTrips.tripsAddTrip);
+// CREATE trip
+router.post('/trips', ctrlTrips.tripsCreateTrip);
 
-// PUT update trip
+// UPDATE trip
 router.put('/trips/:tripId', ctrlTrips.tripsUpdateTrip);
 
 // DELETE trip

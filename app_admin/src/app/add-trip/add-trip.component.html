@@ -1,1 +1,16 @@
-<p>add-trip works!</p>
+<h2>Add Trip</h2>
+
+<form (ngSubmit)="onSubmit()">
+
+  <input class="form-control mb-2" placeholder="Code" [(ngModel)]="trip.code" name="code">
+  <input class="form-control mb-2" placeholder="Name" [(ngModel)]="trip.name" name="name">
+  <input class="form-control mb-2" placeholder="Length" [(ngModel)]="trip.length" name="length">
+  <input class="form-control mb-2" placeholder="Start" [(ngModel)]="trip.start" name="start">
+  <input class="form-control mb-2" placeholder="Resort" [(ngModel)]="trip.resort" name="resort">
+  <input class="form-control mb-2" placeholder="Price" [(ngModel)]="trip.perPerson" name="perPerson" type="number">
+  <input class="form-control mb-2" placeholder="Image" [(ngModel)]="trip.image" name="image">
+  <textarea class="form-control mb-2" placeholder="Description" [(ngModel)]="trip.description" name="description"></textarea>
+
+  <button class="btn btn-success" type="submit">Add Trip</button>
+
+</form>

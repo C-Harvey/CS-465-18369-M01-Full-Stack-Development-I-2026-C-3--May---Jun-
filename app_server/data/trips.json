@@ -1,17 +1,32 @@
 [
-    {
-        "name": "Gale Reef",
-        "image": "images/reef1.jpg",
-        "description": "Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida."
-    },
-    {
-        "name": "Dawson Reef",
-        "image": "images/reef2.jpg",
-        "description": "Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat."
-    },
-    {
-        "name": "Claires Reef",
-        "image": "images/reef3.jpg",
-        "description": "Donec sed felis risus. Nulla facilisi. Donec a orci tellus, et auctor odio. Fusce ac orci nibh."
-    }
+  {
+    "code": "EB",
+    "name": "Emerald Bay",
+    "resort": "3 stars",
+    "length": "4 nights / 5 days only",
+    "start": "2026-07-01",
+    "perPerson": 799,
+    "image": "images/reef1.jpg",
+    "description": "Beautiful tropical reef destination with crystal clear waters."
+  },
+  {
+    "code": "BL",
+    "name": "Blue Lagoon",
+    "resort": "4 stars",
+    "length": "4 nights / 5 days only",
+    "start": "2026-07-01",
+    "perPerson": 1199,
+    "image": "images/reef2.jpg",
+    "description": "Luxury lagoon experience with premium amenities and diving."
+  },
+  {
+    "code": "CS",
+    "name": "Coral Sands",
+    "resort": "5 stars",
+    "length": "4 nights / 5 days only",
+    "start": "2026-07-01",
+    "perPerson": 1999,
+    "image": "images/reef3.jpg",
+    "description": "High-end coral resort with exclusive ocean access and suites."
+  }
 ]
