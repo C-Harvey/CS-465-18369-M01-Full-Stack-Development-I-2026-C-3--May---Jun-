@@ -6,7 +6,6 @@ import { EditTripComponent } from './edit-trip/edit-trip.component';
 
 const routes: Routes = [
   { path: '', component: TripListingComponent },
-  { path: 'trips', component: TripListingComponent },
   { path: 'add', component: AddTripComponent },
   { path: 'edit/:id', component: EditTripComponent }
 ];

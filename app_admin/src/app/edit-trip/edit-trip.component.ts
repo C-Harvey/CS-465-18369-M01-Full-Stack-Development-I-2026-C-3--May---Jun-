@@ -10,27 +10,35 @@ import { Trip } from '../models/trip';
 })
 export class EditTripComponent implements OnInit {
 
-  trip!: Trip;
+  trip: Trip = {
+    code: '',
+    name: '',
+    length: '',
+    start: '',
+    resort: '',
+    perPerson: 0,
+    image: '',
+    description: ''
+  };
+
+  private id!: string;
 
   constructor(
     private route: ActivatedRoute,
-    private tripService: TripDataService,
-    private router: Router
+    private router: Router,
+    private tripService: TripDataService
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id')!;
 
-    if (id) {
-      this.tripService.getTripById(id).subscribe((data: Trip) => {
-        this.trip = data;
-      });
-    }
+    this.tripService.getTripById(this.id).subscribe((data: Trip) => {
+      this.trip = data;
+    });
   }
 
   onSubmit(): void {
-    this.tripService.updateTrip(this.trip._id!, this.trip).subscribe(() => {
-      alert('Trip updated successfully');
+    this.tripService.updateTrip(this.id, this.trip).subscribe(() => {
       this.router.navigate(['/']);
     });
   }

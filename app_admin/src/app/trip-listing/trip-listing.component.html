@@ -1,11 +1,16 @@
 <div class="row">
+
   <div *ngFor="let trip of trips" class="col-4">
 
-    <app-trip-card
-      [trip]="trip"
-      (edit)="onEditTrip($event)"
-      (delete)="onDeleteTrip($event)">
-    </app-trip-card>
+    <app-trip-card [trip]="trip"></app-trip-card>
+
+    <button
+      *ngIf="trip._id"
+      class="btn btn-danger mt-2"
+      (click)="onDelete(trip._id!)">
+      Delete
+    </button>
 
   </div>
+
 </div>

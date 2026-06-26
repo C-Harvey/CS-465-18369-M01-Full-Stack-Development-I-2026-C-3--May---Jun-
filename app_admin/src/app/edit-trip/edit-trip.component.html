@@ -1,22 +1,16 @@
 <h2>Edit Trip</h2>
 
-<form *ngIf="trip" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()">
 
-  <input class="form-control mb-2" [(ngModel)]="trip.code" name="code">
-  <input class="form-control mb-2" [(ngModel)]="trip.name" name="name">
-  <input class="form-control mb-2" [(ngModel)]="trip.length" name="length">
-  <input class="form-control mb-2" [(ngModel)]="trip.start" name="start">
-  <input class="form-control mb-2" [(ngModel)]="trip.resort" name="resort">
-  <input class="form-control mb-2" [(ngModel)]="trip.perPerson" name="perPerson">
-  <input class="form-control mb-2" [(ngModel)]="trip.image" name="image">
+  <input class="form-control mb-2" [(ngModel)]="trip.code" name="code" placeholder="Code">
+  <input class="form-control mb-2" [(ngModel)]="trip.name" name="name" placeholder="Name">
+  <input class="form-control mb-2" [(ngModel)]="trip.length" name="length" placeholder="Length">
+  <input class="form-control mb-2" [(ngModel)]="trip.start" name="start" placeholder="Start">
+  <input class="form-control mb-2" [(ngModel)]="trip.resort" name="resort" placeholder="Resort">
+  <input class="form-control mb-2" [(ngModel)]="trip.perPerson" name="perPerson" type="number" placeholder="Price">
+  <input class="form-control mb-2" [(ngModel)]="trip.image" name="image" placeholder="Image">
+  <textarea class="form-control mb-2" [(ngModel)]="trip.description" name="description"></textarea>
 
-  <textarea class="form-control mb-2"
-    [(ngModel)]="trip.description"
-    name="description">
-  </textarea>
-
-  <button class="btn btn-primary" type="submit">
-    Save Changes
-  </button>
+  <button class="btn btn-primary">Save Changes</button>
 
 </form>

@@ -23,13 +23,9 @@ export class TripListingComponent implements OnInit {
     });
   }
 
-  onEditTrip(trip: Trip): void {
-    console.log('Edit:', trip);
-  }
-
-  onDeleteTrip(trip: Trip): void {
-    this.tripService.deleteTrip((trip as any)._id).subscribe(() => {
-      this.loadTrips();
+  onDelete(id: string): void {
+    this.tripService.deleteTrip(id).subscribe(() => {
+      this.loadTrips(); // refresh UI
     });
   }
 }

@@ -1,4 +1,5 @@
 <div class="card mb-3">
+
   <div class="card-header">{{ trip.name }}</div>
 
   <img [src]="'assets/' + trip.image" class="card-img-top">
@@ -15,10 +16,6 @@
 
     <button class="btn btn-primary mt-2" (click)="onEditClick()">
       Edit Trip
-    </button>
-
-    <button class="btn btn-danger mt-2 ms-2" (click)="onDeleteClick()">
-      Delete
     </button>
 
   </div>

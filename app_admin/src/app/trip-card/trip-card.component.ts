@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Trip } from '../models/trip';
 
 @Component({
@@ -10,15 +11,9 @@ export class TripCardComponent {
 
   @Input() trip!: Trip;
 
-  @Output() edit = new EventEmitter<Trip>();
-
-  @Output() delete = new EventEmitter<Trip>();
+  constructor(private router: Router) {}
 
   onEditClick(): void {
-    this.edit.emit(this.trip);
-  }
-
-  onDeleteClick(): void {
-    this.delete.emit(this.trip);
+    this.router.navigate(['/edit', this.trip._id]);
   }
 }
